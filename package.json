@@ -1,0 +1,9 @@
+{
+  "name": "galaxy",
+  "version": "1.0.0",
+  "description": "Implementation of \"GOD\" Talent Programming Season #1",
+  "devDependencies": {
+    "browserify": "^8.1.1",
+    "swig": "^1.4.2"
+  }
+}
