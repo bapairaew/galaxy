@@ -12,7 +12,7 @@ To see the result of [the assignment](https://thehub.thomsonreuters.com/docs/DOC
 
 which should show
 
-`\'A\'->10->30->20->\'G\'`
+`'A'->10->30->20->'G'`
 
 ### Build for Chrome console
 
@@ -40,7 +40,7 @@ The routing string from `<start>` star to `<end>` star of `<galaxy.json>` galaxy
 
 will result
 
-`\'A\'->10->30->20->\'G\'`
+`'A'->10->30->20->'G'`
 
 #### Galaxy.json
 You can define you own galaxy with the following json format.
