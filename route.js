@@ -9,4 +9,4 @@ var destination = process.argv[4];
 var json = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 var galaxy = Galaxy.parse(json);
 
-console.log(galaxy.routeString(galaxy.getStarById(start.toLowerCase()), galaxy.getStarById(destination.toLowerCase())));
+console.log(galaxy.routeString(galaxy.getDoorById(start.toLowerCase()), galaxy.getDoorById(destination.toLowerCase())));

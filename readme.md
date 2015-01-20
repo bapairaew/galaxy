@@ -33,7 +33,7 @@ The result will be generated to `build/index.html`.
 ### Usage
 `node route <galaxy.json> <start> <end>`
 
-The routing string from `<start>` star to `<end>` star of `<galaxy.json>` galaxy will be display in console.
+The routing string from `<start>` door to `<end>` door of `<galaxy.json>` galaxy will be display in console.
 
 #### Example
 `node route andromeda.json a g`
@@ -48,26 +48,26 @@ You can define you own galaxy with the following json format.
 ```javascript
 // Please remove comment before using it.
 {
-  "stars": [ "earth", "mars", "neptune", "moon" ], // List of stars' ids
-  "colonies": [                                    // List of colonies
+  "doors": [ "earth", "mars", "neptune", "moon" ], // List of doors' ids
+  "stars": [                                    // List of stars
     {
-      "id": "shangri-la",                          // Colony's id
-      "stars": [ "earth" ],                        // Member (star's id)
-      "cost": 10                                   // Cost of entering the colony
+      "id": "shangri-la",                          // Star's id
+      "doors": [ "earth" ],                        // Member (door's id)
+      "cost": 10                                   // Cost of entering the star
     }, {
       "id": "artemis",
-      "stars": [ "moon" ],
+      "doors": [ "moon" ],
       "cost": 30
     }, {
       "id": "heliopolis",
-      "stars": [ "mars", "neptune" ],
+      "doors": [ "mars", "neptune" ],
       "cost": 50
     }
   ],
-  "portals": [                                     // List of portals between colonies
+  "portals": [                                     // List of portals between stars
     {
-      "exit1": "shangri-la",                       // Exit #1 colony's id
-      "exit2": "artemis",                          // Exit #2 colony's id
+      "exit1": "shangri-la",                       // Exit #1 star's id
+      "exit2": "artemis",                          // Exit #2 star's id
       "bidirectional": true                        // This portal is bidirectional
     }, {
       "exit1": "shangri-la",

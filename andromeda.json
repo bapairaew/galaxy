@@ -1,33 +1,33 @@
 {
-  "stars": [ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r" ],
-  "colonies": [
+  "doors": [ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r" ],
+  "stars": [
     {
       "id": "10",
-      "stars": [ "a", "b" ],
+      "doors": [ "a", "b" ],
       "cost": 10
     }, {
       "id": "30",
-      "stars": [ "c", "d", "e" ],
+      "doors": [ "c", "d", "e" ],
       "cost": 30
     }, {
       "id": "20",
-      "stars": [ "f", "g" ],
+      "doors": [ "f", "g" ],
       "cost": 20
     }, {
       "id": "15",
-      "stars": [ "h", "i", "j" ],
+      "doors": [ "h", "i", "j" ],
       "cost": 15
     }, {
       "id": "5",
-      "stars": [ "k" ],
+      "doors": [ "k" ],
       "cost": 5
     }, {
       "id": "3",
-      "stars": [ "l", "m" ],
+      "doors": [ "l", "m" ],
       "cost": 3
     }, {
       "id": "2",
-      "stars": [ "n", "o", "q", "r" ],
+      "doors": [ "n", "o", "q", "r" ],
       "cost": 2
     }
   ],

@@ -1,7 +1,7 @@
 var Galaxy = require('./source/galaxy');
-var Colony = require('./source/colony');
-var Portal = require('./source/portal');
 var Star = require('./source/star');
+var Portal = require('./source/portal');
+var Door = require('./source/door');
 var fs = require('fs');
 
 var getSampleGalaxy = function () {
@@ -16,7 +16,7 @@ var testRouting = function (galaxy, testcases) {
     var splits = test.split('-');
     var start = splits[0];
     var destination = splits[1];
-    var actual = galaxy.routeString(galaxy.getStarById(start), galaxy.getStarById(destination));
+    var actual = galaxy.routeString(galaxy.getDoorById(start), galaxy.getDoorById(destination));
     var expected = testcases[test];
     if (actual !== expected) {
       throw 'Fail!' + actual + expected;
@@ -43,22 +43,22 @@ console.log('Success!');
 
 galaxy = getSampleGalaxy();
 
-var newColony = new Colony('17', [], 17);
-var portals = Portal.bidirection(galaxy.getColonyById('20'), newColony);
-galaxy.addColonies([newColony]);
+var newStar = new Star('17', [], 17);
+var portals = Portal.bidirection(galaxy.getStarById('20'), newStar);
+galaxy.addStars([newStar]);
 galaxy.addPortals(portals);
-var zStar = new Star('z');
-galaxy.addStars([zStar]);
-newColony.addStars([zStar]);
+var zDoor = new Door('z');
+galaxy.addDoors([zDoor]);
+newStar.addDoors([zDoor]);
 
 testRouting(galaxy, {
   'a-z': '\'A\'->10->30->20->17->\'Z\''
 });
 
-galaxy.removeStar(galaxy.getStarById('f'));
+galaxy.removeDoor(galaxy.getDoorById('f'));
 
 testRouting(galaxy, {
-  'a-f': 'Star must not be null! - please check if your input star is existed.'
+  'a-f': 'Door must not be null! - please check if your input door is existed.'
 });
 
 console.log('Success!');
@@ -69,8 +69,8 @@ console.log('Success!');
 
 galaxy = getSampleGalaxy();
 
-var colonyToDestroy = galaxy.getColonyById('5');
-galaxy.removeColony(colonyToDestroy);
+var starToDestroy = galaxy.getStarById('5');
+galaxy.removeStar(starToDestroy);
 
 testRouting(galaxy, {
   'a-k': '\'A\'->10->30->20->15->\'K\''

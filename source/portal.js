@@ -7,11 +7,11 @@ function Portal(exit1, exit2) {
 }
 
 // Inherhit path
-// Exit colony 1
+// Exit star 1
 Portal.prototype.exit1 = null;
 
 // Inherhit path
-// Exit colony 2
+// Exit star 2
 Portal.prototype.exit2 = null;
 
 // Inherhit path
