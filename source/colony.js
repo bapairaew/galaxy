@@ -21,12 +21,26 @@ Colony.prototype.portals = [];
 
 // Add portals to the colony
 Colony.prototype.addStars = function (stars) {
-  this.portals = Utility.makeItBecomeArray(this.stars).concat(stars);
+  this.stars = Utility.makeItBecomeArray(this.stars).concat(stars);
 };
 
 // Add portals to the colony
 Colony.prototype.addPortals = function (portals) {
   this.portals = Utility.makeItBecomeArray(this.portals).concat(portals);
+};
+
+// Remove a star
+Colony.prototype.removeStar = function (star) {
+  var index = this.stars.indexOf(star);
+
+  if (index > -1) {
+    this.stars.splice(index, 1);
+  }
+};
+
+// Return readable name
+Colony.prototype.getReadableName = function () {
+  return this.id.toUpperCase();
 };
 
 // Check if the colony has the input star

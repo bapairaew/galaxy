@@ -2,41 +2,41 @@
   "stars": [ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r" ],
   "colonies": [
     {
-      "id": 0,
+      "id": "10",
       "stars": [ "a", "b" ],
       "cost": 10
     }, {
-      "id": 1,
+      "id": "30",
       "stars": [ "c", "d", "e" ],
       "cost": 30
     }, {
-      "id": 2,
+      "id": "20",
       "stars": [ "f", "g" ],
       "cost": 20
     }, {
-      "id": 3,
+      "id": "15",
       "stars": [ "h", "i", "j" ],
       "cost": 15
     }, {
-      "id": 4,
+      "id": "5",
       "stars": [ "k" ],
       "cost": 5
     }, {
-      "id": 5,
+      "id": "3",
       "stars": [ "l", "m" ],
       "cost": 3
     }, {
-      "id": 6,
+      "id": "2",
       "stars": [ "n", "o", "q", "r" ],
       "cost": 2
     }
   ],
   "portals": [
-    { "exit1": 0, "exit2": 1, "bidirectional": true },
-    { "exit1": 1, "exit2": 2, "bidirectional": true },
-    { "exit1": 2, "exit2": 3, "bidirectional": true },
-    { "exit1": 3, "exit2": 4, "bidirectional": true },
-    { "exit1": 4, "exit2": 5, "bidirectional": true },
-    { "exit1": 5, "exit2": 6, "bidirectional": true }
+    { "exit1": "10", "exit2": "30", "bidirectional": true },
+    { "exit1": "30", "exit2": "20", "bidirectional": true },
+    { "exit1": "20", "exit2": "15", "bidirectional": true },
+    { "exit1": "15", "exit2": "5", "bidirectional": true },
+    { "exit1": "5", "exit2": "3", "bidirectional": true },
+    { "exit1": "3", "exit2": "2", "bidirectional": true }
   ]
 }

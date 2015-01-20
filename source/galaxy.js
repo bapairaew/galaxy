@@ -32,6 +32,54 @@ Galaxy.prototype.addColonies = function (colonies) {
   }.bind(this));
 };
 
+// Remove a star
+Galaxy.prototype.removeStar = function (star) {
+  var index = this.stars.indexOf(star);
+
+  if (index > -1) {
+    this.stars.splice(index, 1);
+    this.colonies.forEach(function (colony) {
+      colony.removeStar(star);
+    });
+  } else {
+    throw 'Star does not existed';
+  }
+};
+
+// Remove a colony
+// Redirect the portals
+// Relocate the stars
+Galaxy.prototype.removeColony = function (colony)  {
+  var index = this.colonies.indexOf(colony);
+
+  if (index > -1) {
+    // Redirect all portals connected to the removed colony to the first exit1
+    var portals = PathFinder.findPathsWhichHasEndingNode(this.portals, colony);
+    for (var i = 1; i < portals.length; i++) {
+      var portal = portals[i];
+      portal.exit1 = portals[0].exit1;
+    }
+
+    // Relocate all the stars belong to the colony to the first connected colony
+    portals[0].exit1.addStars(colony.stars);
+
+    // Remove all portals the still connected to the removed colony
+    this.portals = this.portals.filter(function (portal) {
+      return portal.exit1 !== colony || portal.exit2 !== colony;
+    });
+
+    this.colonies.forEach(function (c) {
+      c.portals = colony.portals.filter(function (portal) {
+        return portal.exit1 !== colony || portal.exit2 !== colony;
+      });
+    });
+
+    this.colonies.splice(index, 1);
+  } else {
+    throw 'Colony does not existed';
+  }
+};
+
 // Add portals to the Galaxy
 Galaxy.prototype.addPortals = function (portals) {
   this.portals = Utility.makeItBecomeArray(this.portals).concat(portals);
@@ -85,13 +133,13 @@ Galaxy.prototype.routeString = function (a, b) {
   try {
     var routes = this.route(a, b);
     if (routes.length === 0) {  // Same colony
-      return a.getReadableName() + '->' + this.getColonyByStar(a).cost + '->' + b.getReadableName();
+      return a.getReadableName() + '->' + this.getColonyByStar(a).getReadableName() + '->' + b.getReadableName();
     } else {
       var routesLength = routes.length;
 
-      var path = a.getReadableName() + '->' + routes[0].exit1.cost;
+      var path = a.getReadableName() + '->' + routes[0].exit1.getReadableName();
       for (var i = 0; i < routesLength; i++) {
-        path += '->' + routes[i].exit2.cost;
+        path += '->' + routes[i].exit2.getReadableName();
       }
       path += '->' + b.getReadableName();
 

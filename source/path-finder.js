@@ -21,6 +21,13 @@ PathFinder.findPathsWhichHasStartingNode = function (paths, start) {
   });
 };
 
+// Find paths which has exit2 equal to start node
+PathFinder.findPathsWhichHasEndingNode = function (paths, start) {
+  return paths.filter(function (path) {
+    return path.exit2 === start;
+  });
+};
+
 // Return route node of shortest path
 // each _paths item must implement exit1, exit2, getDistance()
 PathFinder.search = function (a, b, _paths) {
